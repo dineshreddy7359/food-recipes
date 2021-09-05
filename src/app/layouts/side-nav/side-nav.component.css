@@ -1,0 +1,21 @@
+.user {
+    position: relative;
+}
+
+.user .photo {
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.user .photo img {
+    width: 100%;
+}
+
+.user .user-info {
+    margin: -127px -22px 23px 10px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+}

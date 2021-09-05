@@ -1,0 +1,42 @@
+<!-- <p>full works!</p> -->
+<div class="main-container" fxLayout="column" [ngClass]="themeColor">
+    <mat-toolbar class="toolbar-shade" color="primary">
+		<mat-toolbar-row>
+            <span>Food Recipes</span>
+            <div class="spacer"></div>
+            <!-- The following app header items will be hidden on both SM and XS screen sizes -->
+            <div fxShow="true" fxHide.lt-md="true">
+                <app-header (theme)="themeColorChange($event)" [headerName]="'toolbar'"></app-header>
+            </div>
+            <span>
+                <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                    <mat-icon>dehaze</mat-icon>
+                </button>
+            </span>
+        </mat-toolbar-row>
+	</mat-toolbar>
+
+	<mat-sidenav-container fxFlex="100%">
+		<!-- The following app header items will be shown on both SM and XS screen sizes -->
+        <mat-sidenav #sidenav position="end">
+            <mat-nav-list fxShow="true" fxHide.gt-sm>
+                <app-header (theme)="themeColorChange($event)" [headerName]="'container'"></app-header>
+            </mat-nav-list>
+        </mat-sidenav>
+		<mat-sidenav #sidebar id="sidebar" mode="side" opened="true" (mouseenter)="onSidenavToggle()" (mouseleave)="onSidenavToggle()">
+			<perfect-scrollbar>
+                <app-side-nav [isExpanded]="isExpanded"></app-side-nav>
+            </perfect-scrollbar>
+		</mat-sidenav>
+		<mat-sidenav-content class="main-content">
+            <perfect-scrollbar>
+                <body class="mat-typography">
+                    <router-outlet></router-outlet>
+                </body>
+            </perfect-scrollbar>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <div fxFlex="3.4%">
+        <app-footer></app-footer>
+    </div>
+</div>

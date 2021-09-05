@@ -1,0 +1,82 @@
+<!-- <p>recipe-list works!</p> -->
+<div fxLayout="row wrap" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <div fxLayout="row wrap" fxLayoutWrap="wrap">
+                    <div fxFlex.gt-sm="33.3" fxFlex.gt-xs="33.3" fxFlex="100" class="text-left">
+                        <!-- left -->
+                    </div>
+                    <div fxFlex.gt-sm="33.3" fxFlex.gt-xs="33.3" fxFlex="100" class="text-center">
+                        <!-- center -->
+                        Recipes List
+                    </div>
+                    <div fxFlex.gt-sm="33.3" fxFlex.gt-xs="33.3" fxFlex="100" class="text-right">
+                        <!-- right -->
+                        <button mat-raised-button color="primary" [routerLink]="['/dashboard/recipe-add']">Add Recipe</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-card-content>
+                <div fxLayout="row wrap" fxLayoutWrap="wrap">
+                    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                        <mat-table class="mat-group-style" #table [dataSource]="foodItemsRecipesList">
+                            <ng-container matColumnDef="dishName">
+                                <mat-header-cell class="text-left" *matHeaderCellDef> Dish Name </mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element"> {{element.dishName}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="dateTime">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Date Time</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">{{element.dateTime | date:'medium'}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="isVegetarian">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Is Vegetarian</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">{{element.isVegetarian}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="noOfPeopleSuitable">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>No Of People Suitable</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">{{element.noOfPeopleSuitable}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="ingredients">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Ingredients</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">{{element.ingredients}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="cookingInstructions">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Cooking Instructions</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">{{element.cookingInstructions}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="update">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Update</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">
+                                    <button mat-icon-button color="accent" (click)="updateFoodRecipe(element)">
+                                      <mat-icon>edit_forever</mat-icon>
+                                    </button>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="delete">
+                                <mat-header-cell class="text-left" *matHeaderCellDef>Delete</mat-header-cell>
+                                <mat-cell class="text-left" *matCellDef="let element">
+                                    <button mat-icon-button color="warn" (click)="deleteFoodRecipe()">
+                                      <mat-icon>delete_forever</mat-icon>
+                                    </button>
+                                </mat-cell>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="displayRecipesList"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayRecipesList;"></mat-row>
+                        </mat-table>
+                        <mat-error *ngIf="foodItemsRecipesList && foodItemsRecipesList.length == 0" class="text-center p-t-10">No data to display</mat-error>
+                        <mat-paginator #recipesPagination [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<app-loader></app-loader>

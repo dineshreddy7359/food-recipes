@@ -1,0 +1,95 @@
+/******************
+Color Red
+******************/
+
+@include mat-core();
+$mat-red: (
+  50: #ffebee,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$red-app-primary: mat-palette($mat-red, 600);
+$red-app-accent: mat-palette($mat-indigo, A200, A100, A400);
+$red-app-warn: mat-palette($mat-pink);
+$red-app-theme: mat-light-theme($red-app-primary, $red-app-accent, $red-app-warn);
+$themecolor: #F44336;
+$themecolor-alt: #F44336;
+@include angular-material-theme($red-app-theme);
+
+$selected: #151414;
+$hover: #cccccc;
+$white: #fff;
+$grey: #777879;
+
+#sidebar {
+    background-color: $grey;
+    color: $white;
+    .mat-list-item .mat-list-icon {
+        background: $themecolor-alt;
+        color: $white;
+    }
+    .mat-list-text {
+        color: $white;
+    }
+    .selected {
+        background: $selected;
+        border-radius: 10px;
+    }
+    .mat-nav-list .mat-list-item:hover {
+        background: $hover;
+        border-radius: 10px;
+    }
+    .submenu {
+        overflow-y: hidden;
+        transition: transform 300ms ease;
+        transform: scaleY(0);
+        transform-origin: top;
+        padding-left: 20px;
+    }
+    .submenu.expanded {
+        transform: scaleY(1);
+    }
+    .menu-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+        color: $white;
+    }
+    .menu-button.rotated {
+        transform: rotate(180deg);
+    }
+}
+mat-toolbar {
+    color: $white;
+    background-color: $themecolor-alt;
+}
+footer {
+    color: $white;
+    background-color: $themecolor-alt;
+}

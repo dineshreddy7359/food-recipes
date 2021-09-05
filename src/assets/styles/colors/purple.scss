@@ -1,0 +1,95 @@
+/******************
+Color Purple
+******************/
+
+@include mat-core();
+$mat-purple: (
+  50: #f3e5f5,
+  100: #e1bee7,
+  200: #ce93d8,
+  300: #ba68c8,
+  400: #ab47bc,
+  500: #9c27b0,
+  600: #8e24aa,
+  700: #7b1fa2,
+  800: #6a1b9a,
+  900: #4a148c,
+  A100: #ea80fc,
+  A200: #e040fb,
+  A400: #d500f9,
+  A700: #aa00ff,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$purple-app-primary: mat-palette($mat-purple, 600);
+$purple-app-accent: mat-palette($mat-indigo, A200, A100, A400);
+$purple-app-warn: mat-palette($mat-pink);
+$purple-app-theme: mat-light-theme($purple-app-primary, $purple-app-accent, $purple-app-warn);
+$themecolor: #9C27B0;
+$themecolor-alt: #9C27B0;
+@include angular-material-theme($purple-app-theme);
+
+$selected: #151414;
+$hover: #cccccc;
+$white: #fff;
+$grey: #777879;
+
+#sidebar {
+    background-color: $grey;
+    color: $white;
+    .mat-list-item .mat-list-icon {
+        background: $themecolor-alt;
+        color: $white;
+    }
+    .mat-list-text {
+        color: $white;
+    }
+    .selected {
+        background: $selected;
+        border-radius: 10px;
+    }
+    .mat-nav-list .mat-list-item:hover {
+        background: $hover;
+        border-radius: 10px;
+    }
+    .submenu {
+        overflow-y: hidden;
+        transition: transform 300ms ease;
+        transform: scaleY(0);
+        transform-origin: top;
+        padding-left: 20px;
+    }
+    .submenu.expanded {
+        transform: scaleY(1);
+    }
+    .menu-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+        color: $white;
+    }
+    .menu-button.rotated {
+        transform: rotate(180deg);
+    }
+}
+mat-toolbar {
+    color: $white;
+    background-color: $themecolor-alt;
+}
+footer {
+    color: $white;
+    background-color: $themecolor-alt;
+}

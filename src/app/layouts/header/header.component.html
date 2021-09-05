@@ -1,0 +1,36 @@
+<!-- <p>header works!</p> -->
+<div>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Theme Color Change" [matMenuTriggerFor]="theme">
+            <mat-icon>format_color_fill</mat-icon>
+        </button>
+        <mat-menu #theme="matMenu">
+            <div class="btn-wrapper">
+              <button mat-fab class="btn btn-blue" style="background-color: #2196F3;" (click)="themeChange('blue')">Blue</button>
+              <button mat-fab class="btn btn-purple" style="background-color: #9C27B0;" (click)="themeChange('purple')">Purple</button>
+              <button mat-fab class="btn btn-red" style="background-color: #F44336;" (click)="themeChange('red')">Red</button>
+              <button mat-fab class="btn btn-green" style="background-color: #4CAF50;" (click)="themeChange('green')">Green</button>
+            </div>
+        </mat-menu>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Home">
+            <mat-icon>home</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Notifications">
+            <mat-icon>notifications</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Settings">
+            <mat-icon>settings</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Logout" (click)="logout()">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </a>
+</div>

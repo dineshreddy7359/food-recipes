@@ -1,0 +1,39 @@
+<!-- <p>login works!</p> -->
+<div class="login-wrapper" fxLayout="row" fxLayout="row wrap">
+    <mat-card class="box">
+      <mat-card-header>
+        <img src="assets/images/recipes.jpg" alt="recipe logo" width="150" height="150">
+      </mat-card-header>
+      <mat-card-title class="title">Login</mat-card-title>
+      <form [formGroup]="loginForm">
+        <mat-card-content>
+          <div>
+            <mat-icon>person</mat-icon>
+            <mat-form-field>
+              <input matInput formControlName="userName" placeholder="User Name" required>
+              <mat-error *ngIf="!loginForm.controls['userName'].valid && loginForm.controls['userName'].touched">
+                <mat-error *ngIf="loginForm.controls['userName'].errors.required">User Name should not be empty.</mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-icon>vpn_key</mat-icon>
+            <mat-form-field>
+              <input matInput type="password" formControlName="password" placeholder="Password" required [type]="hide ? 'password' : 'text'">
+              <mat-icon class="icon-pointer" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+                <mat-error *ngIf="loginForm.controls['password'].errors.required">Password should not be empty.</mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="login-button">
+            <button mat-stroked-button color="primary" class="btn-block" (click)="login()" [disabled]="!loginForm.valid">Log In <mat-icon>login</mat-icon></button>
+          </div>
+          <div class="login-button link-position">
+            <i class="fa fa-info-circle p-10" aria-hidden="true"></i><a href="/register">not at registered ? please register here !</a>
+          </div>
+        </mat-card-content>
+      </form>
+    </mat-card>
+</div>
+<app-loader></app-loader>

@@ -1,0 +1,33 @@
+/*********************
+Main Styles And Import Other Styles
+*********************/
+
+// @import '~themify-icons/css/themify-icons.css';
+@import '~font-awesome/css/font-awesome.css';
+@import 'variable';
+@import 'app';
+@import 'spinner';
+
+/* Purple Theme */
+.purple {
+    @import 'colors/purple.scss';
+    @include angular-material-theme($purple-app-theme);
+}
+
+/* Green Theme */
+.green {
+    @import 'colors/green.scss';
+    @include angular-material-theme($green-app-theme);
+}
+
+/* Red Theme */
+.red {
+    @import 'colors/red.scss';
+    @include angular-material-theme($red-app-theme);
+}
+
+/* Blue Theme */
+.blue {
+    @import 'colors/blue.scss';
+    @include angular-material-theme($blue-app-theme);
+}

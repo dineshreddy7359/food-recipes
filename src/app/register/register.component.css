@@ -1,0 +1,29 @@
+.register-wrapper {
+    justify-content: center;
+    background: url(/assets/images/img_mountains.png) no-repeat;
+    background-size: cover;
+    opacity: 1.0;
+}
+.box {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 30px;
+    max-width: 350px;
+}
+.title {
+    text-align: center;
+}
+.register-wrapper mat-card-header {
+    text-align: center;
+    display: block;
+}
+.register-wrapper .mat-stroked-button {
+    border: 1px solid currentColor;
+    background: #FFF7FA;
+}
+.register-button {
+    margin-top: 20px;
+}
+.icon-pointer {
+    cursor: pointer;
+}
